@@ -1,0 +1,18 @@
+* {
+    font-family: "Playfair Display", serif;
+}
+
+h2 {
+    color: blue;
+}
+
+.class-selector {
+    font-size: 30px;
+    border: 2px darkred;
+}
+
+#id-selector {
+    font-size: 40px;
+    font-style: italic;
+    color: forestgreen;
+}

@@ -1,0 +1,2 @@
+# 상위 디렉토리에 있는 모든 프로젝트의 node_modules 폴더 제외
+**/node_modules/

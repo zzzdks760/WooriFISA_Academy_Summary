@@ -1,0 +1,72 @@
+#rgba {
+    display: flex;
+    justify-content: center;
+}
+
+#box {
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+}
+
+#btn {
+    
+    margin-top: 100px;
+    justify-content: center;
+    width: 110px;
+    height: 50px;
+    align-items: center;
+    border-style: dashed;
+    background-color: transparent;
+}
+
+
+#counter {
+    display: flex;
+    justify-content: center ;
+    margin-top: 30px;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+#cnt {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+#footerBtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#decrease {
+    margin-left: 400px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border-style: dashed;
+    background-color: transparent;
+}
+
+#reset {
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border-style: dashed;
+    background-color: transparent;
+}
+
+#increase {
+    width: 100px;
+    height: 0px;
+    font-size: 15px;
+    margin-right: 400px;
+    border-style: dashed;
+    background-color: transparent;
+}

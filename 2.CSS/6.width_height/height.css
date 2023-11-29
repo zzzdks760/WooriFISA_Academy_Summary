@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+}
+
+.height-default {
+    border: 2px solid greenyellow;
+}
+
+.height-px {
+    border: 2px solid orange;
+    height: 300px;
+}
+
+.height-pct {
+    height: 10%;
+    border: 2px solid tomato    ;
+}

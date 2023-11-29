@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+
+</head>
+<body>
+    <header>
+        <!-- .header-main -->
+        <div class="header-main">
+            <!-- h1.header-main-logo -->
+            <!-- 메인 로고 영역 -->
+            <h1 class="header-main-logo">
+                <a href="https://www.google.com/">
+                    <img
+                  src="https://papago.naver.com/97ec80a681e94540414daf2fb855ba3b.svg"
+                  alt="papago logo"
+                />
+                </a>
+            </h1>
+
+            <!-- 메인 메뉴 영역 -->
+            <ul class="header-main-menu">
+                <!-- li*3 -->
+                <li>웹사이트 번역</li>
+                <li>GYM</li>
+                <li>사전</li>
+            </ul>
+        </div>
+        <div class="header-sub">
+            <!-- 아이콘 영역 -->
+            <div class="header-sub-icons">
+                <!-- .header-sub-icon*3>i -->
+                <div class="Header__sub__icon">
+                    <i class="far fa-window-restore fa-lg"></i>
+                  </div>
+                  <div class="Header__sub__icon">
+                    <i class="far fa-star fa-lg"></i>
+                  </div>
+                  <div class="Header__sub__icon">
+                    <i class="fas fa-sliders-h fa-lg fa-rotate-90"></i>
+                </div>
+            </div>
+
+            <!-- 프로필 영역 -->
+            <div class="Header__sub__profile">
+                <div class="Header__sub__profile__image">
+                  <i class="fas fa-user-astronaut fa-lg"></i>
+                </div>
+                <div class="Header__sub__profile__username">
+                  <p class="coloful-font">fisa</p>
+                </div>
+              </div>
+        </div>
+    </header>
+    <section>
+        <div class="select-left-box">
+            <select name = inputLang>
+                <option>언어감지</option>
+                <option>한국어</option>
+                <option>영어</option>
+                <option>일본어</option>
+                <option>중국어(간체)</option>
+                <option>중국어(번체)</option>
+                <option>스페인어</option>
+                <option>프랑스어</option>
+                <option>독일어</option>
+                <option>러시아어</option>
+                <option>포르투갈어</option>
+                <option>이탈리아어</option>
+                <option>베트남어</option>
+                <option>태국어</option>
+                <option>인도네시아어</option>
+                <option>힌디어</option>
+            </select>
+            <div>
+                <textarea rows="12" cols="53">번역할 내용을 입력하세요.</textarea>
+            </div>           
+        </div>
+
+        <div class="left-icons">
+            <div class="Header__sub__icon">
+                <i class="fas fa-volume-up"></i>
+              </div>
+              <div class="Header__sub__icon">
+                <i class="far fa-copy"></i>
+              </div>
+            <button id="btn_trans"></button>
+        </div>
+    </section>
+
+    <p>0 / 3000</p>
+    
+
+    <footer>
+        푸터
+    </footer>
+</body>
+</html>

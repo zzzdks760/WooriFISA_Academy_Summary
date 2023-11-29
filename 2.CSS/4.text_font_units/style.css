@@ -1,0 +1,63 @@
+html {
+    font-size: 20px;
+}
+
+table, td, th {
+    border-collapse: collapse;
+
+    border-style: dashed;
+    border-width: 2px;
+    border-color: black;
+
+    text-align: center;
+
+    margin: auto;
+}
+
+tr, td {
+    /* 안쪽 여백 */
+    padding: 10px;
+}
+
+.browser-color {
+    color: red;
+}
+
+.google-hex {
+    color: #a52a2a;
+    font-family: 'Oswald', sans-serif;
+}
+
+.google-rgb {
+    color: rgb(0, 255, 0);
+    font-family: 'Fuzzy Bubbles', cursive;
+}
+
+.google-rgba {
+    color: rgba(0, 0, 255, 0.4);
+    font-family: 'Raleway', sans-serif;
+}
+
+.px-parent {
+    font-size: 32px;
+}
+
+.px-child {
+    font-size: 16px;
+}
+
+.em-parent {
+    font-size: 3em;
+}
+
+.em-child {
+    font-size: 0.5em;
+}
+
+.rem-parent {
+    font-size: 3rem;
+}
+
+.rem-child {
+    font-size: 0.5rem;
+}

@@ -1,0 +1,15 @@
+body {
+    color: red;
+}
+
+p {
+    color: orange;
+}
+
+.class-selector {
+    color: brown;
+}
+
+#id-selector {
+    color: green;
+}

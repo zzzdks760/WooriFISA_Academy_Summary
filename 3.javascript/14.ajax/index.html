@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script defer src="app.js"></script> -->
+    <script defer src="app2.js"></script>
+    <style>
+        .controls {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button id="success">XHR 요청 전송 (성공)</button>
+        <button id="error">XHR 요청 전송 (실패)</button>
+        <button id="abort">XHR 요청 전송 (요청 중단)</button>
+    </div>
+    
+    <h2>처리 프로세스</h2>
+    <textarea readonly id="event-log" cols="65" rows="10"></textarea>
+    
+    <h2>결과 데이터(JSON)</h2>
+    <div id="result">
+
+    </div>
+</body>
+</html>
