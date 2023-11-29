@@ -34,16 +34,17 @@ const detectLanguage = async (text) => {
     let sourceLanguage;
 
     const url = '/detectLangs';
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ query: text }),
-    };
+    const options = optionsFrom('POST', {query : text});
+    // const options = {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({ query: text }), //직렬화
+    // };
 
     await fetch(url, options)
-    .then(response => response.json())
+    .then(response => response.json()) //역직렬화
     .then(data => {
         sourceLanguage = data.langCode;
         sourceSelect.value = sourceLanguage;
