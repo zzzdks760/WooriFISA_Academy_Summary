@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- JSX를 사용하기 위해 필요한 의존성(Babel) 추가 -->
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const Component = props => {
+            return <div className="mx-2">
+                <img src= {props.imgUrl}></img>
+                <p>{props.name}</p>
+                <p>{props.price}</p>
+            </div>
+        };
+
+
+        const Component2 = ({imgUrl, name, price}) => {
+
+            return <div className="mx-2">
+                <img src= {imgUrl}></img>
+                <p>{name}</p>
+                <p>{price}</p>
+            </div>
+        }
+
+        const MultipleComponents = () => {
+            return (
+                <div className="text-center">
+                    <div className='flex justify-center'>
+                        <Component2 imgUrl = "https://picsum.photos/id/30/200/200" name = "컵" price = "5,000"/>
+                        <Component2 imgUrl = "https://picsum.photos/id/39/200/200" name = "LP" price = "5,000"/>
+                        <Component2 imgUrl = "https://picsum.photos/id/211/200/200" name = "배" price = "2,000"/>
+                        <Component2 imgUrl = "https://picsum.photos/id/250/200/200" name = "카메라" price = "9,000"/>
+                    </div>
+                </div>
+            )
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MultipleComponents />);
+    </script>
+</body>
+</html>

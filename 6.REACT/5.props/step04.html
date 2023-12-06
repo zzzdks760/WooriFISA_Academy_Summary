@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- JSX를 사용하기 위해 필요한 의존성(Babel) 추가 -->
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        /**
+         *  1. Comment(댓글) 컴포넌트 작성
+         *  활용 데이터 - commentData 객체
+         * 
+         *  2. Comment 컴포넌트 내 일부를 UserInfo(사용자 정보) 컴포넌트로 분리
+         *  
+         */
+
+        // 날짜 포맷팅용 유틸 함수
+        function formatDate(date) {
+            return date.toLocaleDateString();
+        }
+        
+        const commentData = {
+            date: new Date(),
+            text: 'I hope you enjoy learning React!',
+            author: {
+                name: 'Hello Kitty',
+                avatarUrl: 'http://placekitten.com/g/64/64'
+            }
+        };
+
+        const UserInfo = ({author}) => {
+            return(
+                <div>
+                    <img src ={author.avatarUrl}/>
+                    <p>{author.name}</p>
+                </div>
+            )
+        }
+        const Comment = ({data}) => {
+            return(
+                <div>
+                    <UserInfo author={data.author}/>
+                    <p>{data.text}</p>
+                    <p>{formatDate(data.date)}</p>
+                </div>
+                
+            )
+
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Comment data = {commentData}/>);
+
+    </script>
+</body>
+</html>

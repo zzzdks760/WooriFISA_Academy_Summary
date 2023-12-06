@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <button id="btn">increase</button>
+
+    <script>
+        // React - React 라이브러리의 진입점
+        // 이전 상태(count: 0)와 가장 최근 스냅샷과(button 클릭되어서 count: 1)의 차이를 비교해주고,
+        // 변경 내역을 ReactDOM에게 전달
+
+        // ReactDOM - React가 생성한 컴포넌트(p태그)를 브라우저(Real DOM)에게 전달해주는 역할
+
+        // const component = React.createElement('div', null, 'div태그입니다.');
+        
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+
+        // count 값을 가지고 있는 직접 만든 컴포넌트, 컴포넌트 이름은 '대문자'로 시작
+        const Component = props => {
+            return React.createElement('p', null, `${props.count}`); // <p>${count}</p>와 동일
+        }
+
+        // 초기 렌더링
+        root.render(React.createElement(Component, { count: 0 }, null));
+
+        // 버튼 가져와서 클릭 이벤트 추가, 버튼 클릭되었을 때 다시 렌더링
+        let i = 0;
+        document.getElementById('btn').addEventListener('click', () => {
+            root.render(React.createElement(Component, { count: ++i }, null));
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <button id="btn">increase</button>
+
+    <script>
+        const component = {
+            count: 0,
+            // updateElement: () => `<p>${count}</p>`
+            updateElement() {
+                return `<p>${this.count}</p>`
+            }
+        };
+
+        // 브라우저에 렌더링하는 함수
+        function render(component, element) {
+            element.innerHTML = component.updateElement();
+        }
+
+        // 초기 화면 렌더링
+        console.log('초기 화면 렌더링');
+
+        const root = document.getElementById('root')
+        render(component, root); // component 객체를 가져다가 <div id=root></div>에 렌더링해라
+
+        const button = document.getElementById('btn');
+        button.addEventListener('click', (e) => {
+            // count 프로퍼티 값 증가
+            component.count += 1;
+            
+            //새로 업데이트된 component로 다시 랜더링
+            console.log('re-rendering');
+            render(component, root);
+        });
+    </script>
+</body>
+</html>

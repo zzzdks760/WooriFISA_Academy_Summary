@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const images = [
+            "https://images.pexels.com/photos/3836292/pexels-photo-3836292.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "https://images.pexels.com/photos/2792157/pexels-photo-2792157.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "https://images.pexels.com/photos/1661179/pexels-photo-1661179.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+            "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+        ];
+
+        const {useState} = React;
+
+        const Slider = () => {
+
+            const [count, setImage] = useState(0);
+
+            const clickHandler = () => {
+                setImage((count+1) % 5);
+            }
+
+            const imageList = images.map(image => <img src={image}/>);
+
+            return (
+                <>
+                    <h1>Slider</h1>
+                    <button onClick = {clickHandler} className = "left-arrow">⏪</button>
+                    {imageList[count]}
+                    <button onClick = {clickHandler} className = "right-arrow">⏩</button>
+                </>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Slider />);
+    </script>
+</body>
+</html>

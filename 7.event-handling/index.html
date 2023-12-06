@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- JSX를 사용하기 위해 필요한 의존성(Babel) 추가 -->
+     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // console.log(React);
+        const { useState } = React; // import { useState } from 'react';와 같음
+        // React가 객체이고, useState라는 이름의 프로퍼티를 가지고 있기 때문에 꺼낼 수 있음
+
+        const Toggle = () => {
+
+            const [isToggleOn, toggle] = useState(false);
+            // isToggleOn - 토글이 켜졌어?
+            // toggle - 켜, 꺼
+
+            const clickHandler = () => {
+                // 버튼 텍스트를 OFF, ON으로 변경하는 처리
+                toggle(!isToggleOn);
+            }
+
+            return (
+                // <React.Fragment>와 <>와 같음
+                <>
+                    <img src={isToggleOn ? 'pic_bulboff.gif' : 'pic_bulbon.gif'} />
+                    <button onClick={clickHandler}>{isToggleOn ? 'ON' : 'OFF'}</button>
+                </>
+            )
+        }
+
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Toggle />);
+    </script>
+</body>
+</html>

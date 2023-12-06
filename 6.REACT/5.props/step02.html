@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- JSX를 사용하기 위해 필요한 의존성(Babel) 추가 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // img 링크: https://picsum.photos/id/30/200/200
+
+        const Product = () => {
+            return (
+                <div className="mx-2">
+                    <img src="https://picsum.photos/id/30/200/200" alt="cup"/>
+                    <h2>컵</h2>
+                    <p>5,000원</p>
+                </div>
+            )
+        };
+
+        const Products = () => {
+            return (
+                <div className="text-center">
+                    <h1>상품 목록</h1>
+                    <div className='flex justify-center'>
+                        <Product />
+                        <Product />
+                        <Product />
+                    </div>
+                </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Products />)
+    </script>
+</body>
+</html>

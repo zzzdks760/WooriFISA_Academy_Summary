@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 
+        <ul>
+            <h2>Things cats like</h2>
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul> 
+    -->
+    
+    <!-- JSX를 쓸 수 있는 이유는 babel을 통해 변환되기 때문에 -->
+    <!-- https://babeljs.io/repl#?browsers=defaults&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=AQ0JQUwQwYwFwCIHkCyA6AThAdgEwhgBQBQoZwAPLgJYBuAfKeWRQK4A2jzzFAFgEz0AKr2rYA5gGdgMKHGntqAawgUA9AK7cWi-gGEA9gDMjEVWt1NtICrqHR1l66FvV6KauyWO3V7uo4tHjUaBgAaPzJcAxhWAFscODQAR1YCAE8AZQh2CHgDIgAiAGIMAwM4QoBKSOAqgG4gA&debug=false&forceAllTransforms=false&modules=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-3&prettier=false&targets=&version=7.23.5&externalPlugins=&assumptions=%7B%7D -->
+    <script>
+        const Component = props => { // 코드의 가독성이 낮음
+          return React.createElement('div', null,
+                    React.createElement('h2', null, 'Things cats like'),
+                    React.createElement('ul', null,
+                        React.createElement('li', null, 'Coffee'),
+                        React.createElement('li', null, 'Tea'),
+                        React.createElement('li', null, 'Milk')))
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(React.createElement(Component, null, null));
+    </script>
+</body>
+</html>
