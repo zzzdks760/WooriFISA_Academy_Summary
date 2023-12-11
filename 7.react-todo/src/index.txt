@@ -1,0 +1,4 @@
+src/
+    components/ _ 기본적인 React 컴포넌트 보관용 폴더
+    layouts/ - 기본 layout 용도의 컴포넌트 보관용 폴더
+    
