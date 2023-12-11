@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const ChatRoom = ({ roomId }) => {
+            const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+
+            useEffect(() => {
+                const connection = createConnection(serverUrl, roomId);
+                connection.connect();
+                return () => {
+                    connection.disconnect();
+                };
+            }, [roomId, serverUrl]);
+
+            return (
+                <>
+                    <label>
+                        Server URL:{' '}
+                        <input
+                            value={serverUrl}
+                            onChange={e => setServerUrl(e.target.value)}
+                        />
+                    </label>
+                    <h1>{roomId}채팅방에 들어오신 것을 환영합니다!</h1>
+                </>
+            );
+        }
+
+        const createConnection = (serverUrl, roomId) => {
+            // A real implementation would actually connect to the server
+            return {
+                connect() {
+                    console.log('✅ Connecting to "' + roomId + '" room at ' + serverUrl + '...');
+                },
+                disconnect() {
+                    console.log('❌ Disconnected from "' + roomId + '" room at ' + serverUrl);
+                }
+            };
+        }
+
+        const App = () => {
+            const [roomId, setRoomId] = useState('일반');
+            const [show, setShow] = useState(false);
+            return (
+                <>
+                    <label>
+                        채팅방을 선택하세요:{' '}
+                        <select
+                            value={roomId}
+                            onChange={e => setRoomId(e.target.value)}
+                        >
+                            <option value="일반">일반</option>
+                            <option value="여행">여행</option>
+                            <option value="음악">음악</option>
+                        </select>
+                    </label>
+                    <button onClick={() => setShow(!show)}>
+                        {show ? '방 나가기' : '입장하기'}
+                    </button>
+                    {show && <hr />}
+                    {show && <ChatRoom roomId={roomId} />}
+                </>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+        
+        const Counter = () => {
+            const [count, setCount] = useState(0);
+
+            // #0 useEffect 기본 동작 방식 이해
+            // useEffect(() => {
+            //     console.log('setup() called'); // #0-1. 컴포넌트가 렌더링 될때마다 실행됨
+            // });
+            // 컴포넌트가 렌더링 된 후에 부수효과를 동작시키고 싶을 때 사용하는 hook
+            // useEffect는 컴포넌트의 렌더링이 모두 완료된 후에 실행됨
+
+            // #1. useEffect 기본 동작 방식 이해 - useEffect의 두 번째 인수인 의존성 배열을 빈 배열로 작성했을 때
+            // useEffect(() => {
+            //     console.log('setup() called'); // #1-1. 컴포넌트가 렌더링 된 후(mouted) 단 한 번만 호출됨
+            // }, []); // 의존성 배열이 비어있기 때문에
+
+            // #2. useEffect 기본 동작 방식 이해 - useEffect의 두 번째 인수인 의존성 배열에 상태를 작성했을 때
+            useEffect(() => {
+                console.log('setup() called'); // #2-1. 컴포넌트가 렌더링 된 후(mouted) 호출됨
+            }, [count]); // #2-2. 의존성 배열에 요소로 담긴 반응형 값(reactive value)인 count가 새로운 값으로 변경되었기 때문에
+            // useEffect의 setup 콜백이 다시 호출됨
+                
+            const clickHandler = () => {
+                console.log(`count: ${count}`);
+                setCount(count + 1);
+            };
+
+            return (
+                <>
+                    <p>{count}</p>
+                    <button onClick={clickHandler}>Click me</button>
+                </>
+            )
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Counter />);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const QuoteGenerator = () => {
+            const cnt = Math.floor(Math.random() * 16);
+            const [quotes, setQuotes] = useState([]);
+            const [quote, setQuote] = useState(null);
+            console.log('rendered');
+
+            useEffect(() => {
+                
+                console.log(cnt);
+                console.log('effect called');
+                fetch("https://type.fit/api/quotes")
+                    .then((res) => res.json())
+                    .then((json) => {
+                        // 전체 명언 목록을 quotes 배열에 추가
+                        setQuotes(json);
+                        setQuote(json[0]);
+                    });
+
+            }, []);
+
+            const clickHandler = () => {
+                setQuote(quotes[cnt]);
+            }
+
+            // 옵셔널 체이닝ES2021(?.)
+            return (
+                <main>
+                    <h1>Quote Generator</h1>
+                    <section>
+                        <button onClick = {clickHandler}>Generate</button>
+
+                        <h3>
+                            <span>"</span>
+                            
+                            {quote?.text}
+                        </h3>
+                        <i>- {quote?.author}</i>
+                    </section>
+                </main>
+            )
+
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<QuoteGenerator />);
+    </script>
+</body>
+
+</html>
