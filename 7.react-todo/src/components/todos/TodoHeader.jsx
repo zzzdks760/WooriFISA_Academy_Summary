@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import TodoForm from './TodoForm';
 
 const TodoHeader = ({onAdd}) => {
+  const emptyData = {id:0, title: '', summary: '', category: ''};
   const [isOpen, open] = useState(false);
   const openModal = () => open(true);
   const closeModal = () => open(false);
@@ -16,7 +17,7 @@ const TodoHeader = ({onAdd}) => {
     </button>
     {isOpen && createPortal(
       <Modal onClose={closeModal}>
-        <TodoForm onAdd = {onAdd} onClose={closeModal}/>
+        <TodoForm onAdd = {onAdd} onClose={closeModal} data={emptyData}/>
       </Modal>, 
       document.body)
     }

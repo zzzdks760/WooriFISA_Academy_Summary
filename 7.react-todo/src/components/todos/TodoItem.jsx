@@ -4,7 +4,17 @@ import IconButton from '../ui/buttons/IconButton'
 import TodoBody from './TodoBody'
 
 // rafce
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, editModal}) => {
+
+  const updateHandler = () => {
+    editModal(todo.id);
+    console.log("updateHandler called");
+
+  }
+  const removeHandler = () => {
+    console.log("remove called");
+  }
+
   return (
     <li className="flex gap-4 justify-between my-4 py-4 px-4 border-[1px] bg-gray-700 rounded-md shadow-xl">
         <div>
@@ -15,8 +25,8 @@ const TodoItem = ({todo}) => {
             </div>
         </div>
         <div className="flex items-center gap-1">
-            <IconButton icon={'✏️'}/>
-            <IconButton textColor='text-red-300' icon={'🗑'} />
+            <IconButton icon={'✏️'} onClick={updateHandler}/>
+            <IconButton textColor='text-red-300' icon={'🗑'} onClick={removeHandler} />
         </div>
     </li>
   )

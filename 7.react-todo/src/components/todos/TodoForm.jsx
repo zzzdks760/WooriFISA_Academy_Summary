@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { TODO_CATEGORY_ICON } from '@/constants/icon'
 import { enteredTodoFormIsNotEmpty } from '@/utils/utils';
 
-const TodoForm = ({ onAdd, onClose }) => {
-    const [title, setTitle] = useState('');
-    const [summary, setSummary] = useState('');
-    const [category, setCategory] = useState('TODO');
+const TodoForm = ({ onAdd, onClose, data }) => {
+    console.log("data: ", data);
+    const [title, setTitle] = useState(data.title);
+    const [summary, setSummary] = useState(data.summary);
+    const [category, setCategory] = useState(data.category);
     const [isFormInvalid, setInvalid] = useState(true);
+    const id = data.id;
 
     const addTodoHandler = () => {
-        onAdd({ title, summary, category });
+        onAdd({ id, title, summary, category });
         onClose();
     }
 

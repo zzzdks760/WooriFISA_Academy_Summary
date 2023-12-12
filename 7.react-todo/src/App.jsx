@@ -41,6 +41,21 @@ const App = () => {
     setTodos(updatedTodos);
   }
 
+  const editTodoHandler = ({id, title, summary, category}) => {
+
+    const updatedTodos = [...todos];
+    updatedTodos.map(todo => {
+      if (todo.id === id) {
+        todo.id = id;
+        todo.title = title;
+        todo.summary = summary;
+        todo.category = category;
+      }
+    });
+
+    setTodos(updatedTodos);
+  }
+
   return (
     <DefaultLayout>
       <div>
@@ -53,7 +68,7 @@ const App = () => {
         </header>
         <section>
           <TodoHeader onAdd={addTodoHandler}/>
-          <TodoBody todos={todos}/>
+          <TodoBody todos={todos} onAdd={editTodoHandler}/>
         </section>
       </div>
     </DefaultLayout>
