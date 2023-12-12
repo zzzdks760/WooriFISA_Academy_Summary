@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DefaultLayout from './layouts/DefaultLayout'
 import TodoHeader from './components/todos/TodoHeader'
 import TodoBody from './components/todos/TodoBody'
@@ -25,6 +25,22 @@ const dummyTodos = [
 ]
 
 const App = () => {
+  const [todos, setTodos] = useState(dummyTodos);
+
+  const addTodoHandler = ({ title, summary, category }) => {
+    const newTodo = {
+      id: self.crypto.randomUUID(),
+      title,
+      summary,
+      category
+    };
+
+    // ...todos -> {React}, {점심}, {커피..}
+    // newTodo -> {새로운 todo 데이터..}
+    const updatedTodos = [...todos, newTodo];
+    setTodos(updatedTodos);
+  }
+
   return (
     <DefaultLayout>
       <div>
@@ -36,8 +52,8 @@ const App = () => {
           </div>
         </header>
         <section>
-          <TodoHeader />
-          <TodoBody todos = {dummyTodos}/>
+          <TodoHeader onAdd={addTodoHandler}/>
+          <TodoBody todos={todos}/>
         </section>
       </div>
     </DefaultLayout>

@@ -5,7 +5,6 @@ import TodoBody from './TodoBody'
 
 // rafce
 const TodoItem = ({todo}) => {
-  console.log(todo);
   return (
     <li className="flex gap-4 justify-between my-4 py-4 px-4 border-[1px] bg-gray-700 rounded-md shadow-xl">
         <div>

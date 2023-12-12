@@ -1,8 +1,5 @@
-import React from 'react'
-
-
+import React, { Children } from 'react'
 // 기본 레이아웃 작성용 컴포넌트
-
 // 합성(Composition)
 const DefaultLayout = ({ children }) => {
   return (
@@ -14,5 +11,4 @@ const DefaultLayout = ({ children }) => {
     </div>
   )
 }
-
 export default DefaultLayout
