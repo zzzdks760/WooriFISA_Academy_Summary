@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { createPortal } from 'react-dom';
 import { TODO_CATEGORY_ICON } from '@/constants/icon' // src/constants/icon과 동일
 import IconButton from '@/components/ui/buttons/IconButton'
-import { createPortal } from 'react-dom';
 import Modal from '@/components/ui/Modal';
 import TodoForm from './TodoForm';
+import { TodoDispatchContext } from '@/contexts/TodoContext';
 
-const TodoItem = ({ todo, onUpdate, onDelete }) => {
+const TodoItem = ({ todo }) => {
   const [isOpen, open] = useState(false);
   const openModal = () => open(true);
   const closeModal = () => open(false);
+
+  const dispatch = useContext(TodoDispatchContext);
 
   return (
     <li className="flex gap-4 justify-between my-4 py-4 px-4 border-[1px] bg-gray-700 rounded-md shadow-xl">
@@ -21,14 +24,11 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
         </div>
         <div className="flex items-center gap-1">
             <IconButton onClick={openModal} icon={'✏️'}/>
-            <IconButton textColor='text-red-300' 
-                        icon={'🗑'} 
-                        onClick={() => onDelete(todo.id)} />
+            <IconButton icon={'🗑'} onClick={() => dispatch({ type: 'DELETE', id: todo.id })}/>
         </div>
         {isOpen && createPortal(
-          // "Update Todo".startsWith('New') => false
           <Modal onClose={closeModal}>  
-            <TodoForm onAddOrUpdate={onUpdate} onClose={closeModal} todo={todo}>Update Todo</TodoForm>
+            <TodoForm onClose={closeModal} todo={todo}>Update Todo</TodoForm>
           </Modal>,
           document.body
         )}
