@@ -67,7 +67,7 @@ const TodoForm = ({ onAddOrUpdate, onClose, children, todo }) => {
                 {isFormInvalid && <div className='mt-2 text-red-500'>모든 항목을 채워서 작성해주세요</div>}
                 
                 <div className='flex justify-end gap-4'>
-                    <button className='text-xl text-white' type='button' onClick={onClose}>Cancel</button>
+                    <button className='text-xl text-white' type='button'>Cancel</button>
                     <button className='px-6 py-3 text-xl text-red-200' type='button' onClick={addOrUpdateTodoHandler} disabled={isFormInvalid}>
                         {isNewTodoForm(children) ? 'Add' : 'Update'}
                     </button>

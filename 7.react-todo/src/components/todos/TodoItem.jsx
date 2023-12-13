@@ -21,7 +21,9 @@ const TodoItem = ({ todo, onUpdate, onDelete }) => {
         </div>
         <div className="flex items-center gap-1">
             <IconButton onClick={openModal} icon={'✏️'}/>
-            <IconButton textColor='text-red-300' onClick={() => onDelete(todo.id)} icon={'🗑'} />
+            <IconButton textColor='text-red-300' 
+                        icon={'🗑'} 
+                        onClick={() => onDelete(todo.id)} />
         </div>
         {isOpen && createPortal(
           // "Update Todo".startsWith('New') => false

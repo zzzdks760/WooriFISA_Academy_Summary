@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useReducer } = React;
+
+        const reducer = (state, action) => {
+            console.log(`state: ${state}`);
+            console.log(`action:`, action);
+            // swtich - case 문법
+            switch (action.type) {
+                case "INCREASE":
+                    return state + action.data;
+                case "DECREASE":
+                    return state - action.data;
+                case "RESET":
+                    return 0;
+                // reducer의 반환 값이 새로운 state값(count)이 됨
+            }
+        }
+
+        const Counter = () => {
+
+            // count - 상태값
+            // dispatch - 상태 변화 트리거 함수
+            const [count, dispatch] = useReducer(reducer, 0);
+
+            const increase = () => dispatch({ type: 'INCREASE', data: 1 });
+            const decrease = () => dispatch({ type: 'DECREASE', data: 1 });
+            const reset = () => dispatch({ type: 'RESET', data: 0 });
+
+            return (
+                <>
+                    <p>카운트: {count}</p>
+                    <button onClick={increase}>증가</button>
+                    <button onClick={decrease}>감소</button>
+                    <button onClick={reset}>초기화</button>
+                </>
+            )
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Counter />);
+    </script>
+</body>
+
+</html>

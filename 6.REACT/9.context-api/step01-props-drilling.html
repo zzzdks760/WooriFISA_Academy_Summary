@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // #1. React API에서 createContext() 함수 추출
+        const { useState, createContext, useContext } = React;
+
+        // #2. Context 생성
+        const MyContext = createContext();
+        console.log("useContext", useContext);
+
+        const App = () => {
+            const [data, setData] = useState('Hello from Parent');
+
+            return (
+                // #3. Context 객체가 제공하는 컴포넌트인 Provider를 통해 context로 활용할 영역을 그룹화
+
+                // #4. value attribute에 Context로 제공할 데이터 지정
+                <div> 
+                    <MyContext.Provider value={data}>
+                        <h1>{data}</h1>
+                        <A setData={setData} />
+                    </MyContext.Provider>
+
+                    <div>MyContext와 관련이 없는 영역</div>
+                </div>
+            );
+        };
+
+        const A = ({ setData }) => {
+            return (
+                <div>
+                    <B setData={setData} />
+                </div>
+            );
+        };
+
+        const B = ({ setData }) => {
+            return (
+                <div>
+                    <C setData={setData} />
+                </div>
+            );
+        };
+
+        const C = ({ setData }) => {
+            return (
+                <div>
+                    <D setData={setData} />
+                </div>
+            );
+        };
+
+        const D = ({ setData }) => {
+            const clickHandler = () => setData('Data changed');
+
+            // #5. React API에서 제공하는 useContext() 훅을 통해 컨텍스트로부터 데이터를 전달받음
+
+            // #6. App으로부터 데이터를 전달받기 위해 A,B,C를 거쳐서(Props Drilling) 전달받지 않아도 접근 및 사용 가능
+            const data = useContext(MyContext);
+            console.log('data', data);
+
+            return (
+                <div>
+                    <h5>{data}</h5>
+                    <button onClick={clickHandler}>Change Data</button>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+
+</html>
