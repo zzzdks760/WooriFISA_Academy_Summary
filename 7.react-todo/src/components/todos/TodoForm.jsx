@@ -2,21 +2,37 @@ import React, { useEffect, useState } from 'react'
 import { TODO_CATEGORY_ICON } from '@/constants/icon'
 import { enteredTodoFormIsNotEmpty } from '@/utils/utils';
 
-const TodoForm = ({ onAdd, onClose, data }) => {
-    console.log("data: ", data);
-    const [title, setTitle] = useState(data.title);
-    const [summary, setSummary] = useState(data.summary);
-    const [category, setCategory] = useState(data.category);
-    const [isFormInvalid, setInvalid] = useState(true);
-    const id = data.id;
+const TodoForm = ({ onAddOrUpdate, onClose, children, todo }) => {
 
-    const addTodoHandler = () => {
-        onAdd({ id, title, summary, category });
+    const isNewTodoForm = (children) => children.startsWith('New') ? true : false
+
+    const [title, setTitle] = useState(isNewTodoForm(children) ? '' : todo.title);
+    const [summary, setSummary] = useState(isNewTodoForm(children) ? '' : todo.summary);
+    const [category, setCategory] = useState(isNewTodoForm(children) ? '' : todo.category);
+    const [isFormInvalid, setInvalid] = useState(true);
+
+    const addOrUpdateTodoHandler = () => {
+        // onAdd({ title, summary, category });
+
+        // 조건에 따라 addTodo를 호출할지, updateTodo를 호출할지 분기
+        if (isNewTodoForm(children)) {
+            onAddOrUpdate({ title, summary, category }) // addTodo 호출
+        } else {
+            // updateTodo 호출
+            const updateTodo = {
+                id: todo.id,
+                title,
+                summary,
+                category
+            }
+
+            onAddOrUpdate(updateTodo);
+        }
+
         onClose();
     }
 
     useEffect(() => {
-        console.log("use Effect called");
         if (enteredTodoFormIsNotEmpty(title, summary)) {
             setInvalid(false);
         } else {
@@ -52,7 +68,9 @@ const TodoForm = ({ onAdd, onClose, data }) => {
                 
                 <div className='flex justify-end gap-4'>
                     <button className='text-xl text-white' type='button' onClick={onClose}>Cancel</button>
-                    <button className='px-6 py-3 text-xl text-red-200' type='button' onClick={addTodoHandler} disabled={isFormInvalid}>Add</button>
+                    <button className='px-6 py-3 text-xl text-red-200' type='button' onClick={addOrUpdateTodoHandler} disabled={isFormInvalid}>
+                        {isNewTodoForm(children) ? 'Add' : 'Update'}
+                    </button>
                 </div>
             </form>
         </>
