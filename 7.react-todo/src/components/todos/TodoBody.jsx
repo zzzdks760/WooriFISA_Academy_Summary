@@ -4,7 +4,7 @@ import { useTodos } from '@/contexts/TodoContext'
 
 const TodoBody = () => {
   const todos = useTodos();
-  const filterTodos = (todos, selectedCategory) => selectedCategory === 'ALL' ? todos : todos.filter(todo => todo.category === selectedCategory);
+  const filterTodos = (todos, selectedCategory) => selectedCategory === 'ALL' ? todos : todos.filter((todo) => todo.category === selectedCategory);
   const filteredTodos = filterTodos(todos.data, todos.category);
 
   return (
