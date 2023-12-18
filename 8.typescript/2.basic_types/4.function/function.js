@@ -1,3 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const message = 'hello';
+function add(a, b) {
+    return a + b;
+}
+add(1, 2);
