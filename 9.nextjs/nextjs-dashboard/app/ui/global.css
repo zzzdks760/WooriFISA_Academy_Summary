@@ -1,0 +1,7 @@
+/*
+  #1-0: Styling: 전역으로 적용할 css 작성 파일
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

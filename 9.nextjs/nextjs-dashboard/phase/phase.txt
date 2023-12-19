@@ -1,0 +1,23 @@
+#1-1 프로젝트 초기 세팅
+npx create-next-app@latest nextjs-dashboard --use-npm --example "https://github.com/vercel/next-learn/tree/main/dashboard/starter-example"
+-> https://nextjs.org/learn/dashboard-app/getting-started#creating-a-new-project`
+
+프로젝트 폴더 구조
+
+app/ 
+페이지 이동(라우팅)을 위한 컴포넌트, 로직 등을 포함하는 컴포넌트 등을 보관하는 폴더
+react app의 경우 components/ 폴더와 비슷함
+    app/lib
+        유틸 함수(utils.js), API요청 함수(api.js) 등을 모아두는 라이브러리 폴더
+    app/ui
+        Modal, Card 등과 같이 순수한 UI 자체 컴포넌트를 모아두는 폴더
+
+public/
+    정적 리소스(html, css, svg 파일 등) 보관용 폴더
+
+scripts/
+    웹에서 제공하는 DB 연동용 임시 폴더 및 더미 데이터(seed.js)
+
+config.js~
+    각 라이브러리별 설정 파일
+
