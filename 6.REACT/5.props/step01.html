@@ -14,10 +14,10 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const Component = props => {
-            console.log(props);
+        const Component = (a) => {
+            console.log(a);
             return <div>
-                    <h1>It's a {props.fruit}</h1>
+                    <h1>It's a {a.fruit}</h1>
                 </div>
         };
         
