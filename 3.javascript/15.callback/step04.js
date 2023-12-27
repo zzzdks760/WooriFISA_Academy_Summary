@@ -1,7 +1,7 @@
 function a( callback ) {
 	setTimeout( () => {
         console.log( 'a() called' );
-        callback(); 
+        callback();
     }, 1000 ); // 1 second delay
 }
 
