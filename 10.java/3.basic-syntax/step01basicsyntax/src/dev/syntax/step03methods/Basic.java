@@ -21,4 +21,14 @@ public class Basic {
 			return "기본 음료";
 		}
 	}
+	
+	public static void fakeOrDrinkMachine() {
+		int number = new Random
+		
+		if (number == 0) {
+			System.out.println("제로콜라를 마시고 싶어");
+		} else if (number == 1) {
+			System.out.println("스프라이트를 마시고 싶어");
+		}
+	}
 }
