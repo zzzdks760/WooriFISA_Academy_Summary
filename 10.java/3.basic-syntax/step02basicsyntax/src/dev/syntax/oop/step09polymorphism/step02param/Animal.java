@@ -8,6 +8,6 @@ public class Animal {
 	}
 
 	void play() {
-		System.out.println(name + " 과 산책!");
+		System.out.println(name + " 와 산책!");
 	}
 }
