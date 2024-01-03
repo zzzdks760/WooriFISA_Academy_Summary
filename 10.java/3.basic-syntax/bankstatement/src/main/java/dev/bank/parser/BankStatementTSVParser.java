@@ -1,8 +1,9 @@
-package dev.bank;
+package dev.bank.parser;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import dev.bank.model.BankTransaction;
@@ -15,22 +16,19 @@ import dev.bank.model.BankTransaction;
  */
 public class BankStatementTSVParser {
 	// 멤버 필드
-	final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+	final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
 	
 	// 메서드
-	
 	// 1. 데이터에서 한 줄만 파싱하는 기능
 	// 이 클래스 내에서만 사용할 메서드
 	private BankTransaction parseFromTSV(final String line) {
 		String[] columns = line.split(","); // tsv(Tab separated value), tab으로 구분된 파일
-		
 		LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN); // 문자열 -> 날짜 타입으로 파싱
 		String description = columns[1]; // 거래처 데이터 파싱
 		double amount = Double.parseDouble(columns[2]);
-		
+
 		// 파싱된 개별 타입의 값들을 BankTransaction이라는 클래스로 묶어줌(Wrapping)
 		BankTransaction bankTransaction = new BankTransaction(date, description, amount);
-		
 		return bankTransaction;
 	}
 	
