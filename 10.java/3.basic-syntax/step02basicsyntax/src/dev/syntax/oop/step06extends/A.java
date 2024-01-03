@@ -7,11 +7,11 @@ public class A {
 		System.out.println("methodA() called");
 	}
 	
-	public int getAge() {
-		return age;
+	public A (int age) {
+		this.age = age;
 	}
 	
-	public A(int age) {
-		this.age = age;
+	public int getAge() {
+		return age;
 	}
 }

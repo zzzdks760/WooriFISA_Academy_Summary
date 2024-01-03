@@ -6,7 +6,6 @@ public class Main {
 		
 		B b = new B(10);
 		b.methodB();
-
 		
 	}
 
