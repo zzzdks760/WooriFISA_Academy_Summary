@@ -18,21 +18,20 @@ public class BankStatmentAnalyzer {
 
 	public static void main(String[] args) {
 		// 1. 첫 번째 관심사 - 주어진 입출금 내역 파일(TSV) 읽기
-//		final Path path = Paths.get(RESOURCES + "bank-data.txt");
-		final Path path2 = Paths.get(RESOURCES + "bank-data.csv");
+		final Path path = Paths.get(RESOURCES + "bank-data.csv");
 
 		try {
-			List<String> lines = Files.readAllLines(path2);
+			List<String> lines = Files.readAllLines(path);
 
 			// 2. 두 번째 관심사 - 읽어들인 데이터 파싱 처리
 //			BankStatementTSVParser tsvParser = new BankStatementTSVParser();
 //			List<BankTransaction> bankTransactions = tsvParser.parseLinesFromTSV(lines);
 			
 			BankStatementCSVParser csvParser = new BankStatementCSVParser();
-			List<BankTransaction> bankTransactions2 = csvParser.parseLinesFromCSV(lines);
+			List<BankTransaction> bankTransactions = csvParser.parseLinesFromCSV(lines);
 
 			// 3. 세 번째 관심사 - 연산 처리 및 연산 결과 출력
-			BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions2);
+			BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
 			String totalResult = bankStatementProcessor.calculateTotalAmount();
 			String totalMonthResult = bankStatementProcessor.calculateTotalInMonth(Month.FEBRUARY);
 			System.out.println(totalResult);
