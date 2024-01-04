@@ -4,13 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
 import java.time.Month;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import dev.bank.model.BankTransaction;
-import dev.bank.parser.BankStatementCSVParser;
+import dev.bank.parser.BankStatementParser;
 import dev.bank.parser.BankStatementTSVParser;
 
 public class BankStatmentAnalyzer {
@@ -18,17 +16,14 @@ public class BankStatmentAnalyzer {
 
 	public static void main(String[] args) {
 		// 1. 첫 번째 관심사 - 주어진 입출금 내역 파일(TSV) 읽기
-		final Path path = Paths.get(RESOURCES + "bank-data.csv");
+		final Path path = Paths.get(RESOURCES + "bank-data.txt");
 
 		try {
 			List<String> lines = Files.readAllLines(path);
 
 			// 2. 두 번째 관심사 - 읽어들인 데이터 파싱 처리
-//			BankStatementTSVParser tsvParser = new BankStatementTSVParser();
-//			List<BankTransaction> bankTransactions = tsvParser.parseLinesFromTSV(lines);
-			
-			BankStatementCSVParser csvParser = new BankStatementCSVParser();
-			List<BankTransaction> bankTransactions = csvParser.parseLinesFromCSV(lines);
+			BankStatementParser parser = new BankStatementTSVParser();
+			List<BankTransaction> bankTransactions = parser.parseLinesFrom(lines);
 
 			// 3. 세 번째 관심사 - 연산 처리 및 연산 결과 출력
 			BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);

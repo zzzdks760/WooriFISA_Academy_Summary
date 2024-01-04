@@ -14,14 +14,14 @@ import dev.bank.model.BankTransaction;
  * @author Admin
  *
  */
-public class BankStatementTSVParser {
+public class BankStatementTSVParser implements BankStatementParser{
 	// 멤버 필드
 	final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 	
 	// 메서드
 	// 1. 데이터에서 한 줄만 파싱하는 기능
 	// 이 클래스 내에서만 사용할 메서드
-	private BankTransaction parseFromTSV(final String line) {
+	public BankTransaction parseFrom(final String line) {
 		String[] columns = line.split("\t"); // tsv(Tab separated value), tab으로 구분된 파일
 		LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN); // 문자열 -> 날짜 타입으로 파싱
 		String description = columns[1]; // 거래처 데이터 파싱
@@ -33,13 +33,13 @@ public class BankStatementTSVParser {
 	}
 	
 	// 2. 한줄씩 파싱된 데이터를 리스트에 추가하는 기능
-	public List<BankTransaction> parseLinesFromTSV(List<String> lines) {
+	public List<BankTransaction> parseLinesFrom(List<String> lines) {
 		// 전체 입출금 내역 데이터를 가지고 있는 가변 길이 리스트
 		// 타입은 단 건 입출금 내역인 BankTransaction을 사용 중
 		List<BankTransaction> bankTransactions = new ArrayList<>();
 		
 		for (String line : lines) {
-			BankTransaction bankTransaction = parseFromTSV(line);
+			BankTransaction bankTransaction = parseFrom(line);
 			bankTransactions.add(bankTransaction); // 배열의 요소로 추가
 		}
 		

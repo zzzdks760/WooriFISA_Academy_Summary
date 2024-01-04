@@ -7,12 +7,12 @@ import java.util.List;
 
 import dev.bank.model.BankTransaction;
 
-public class BankStatementCSVParser {
+public class BankStatementCSVParser implements BankStatementParser{
 	final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
 	
 	// 메서드
 		// 1. 데이터에서 한 줄만 파싱하는 기능
-		private BankTransaction parseFromCSV(final String line) {
+		public BankTransaction parseFrom(final String line) {
 			String[] columns = line.split(",");
 			LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN);
 			String description = columns[1]; // 거래처 데이터 파싱
@@ -23,11 +23,11 @@ public class BankStatementCSVParser {
 		}
 		
 		// 2. 한줄씩 파싱된 데이터를 리스트에 추가하는 기능
-		public List<BankTransaction> parseLinesFromCSV(List<String> lines) {
+		public List<BankTransaction> parseLinesFrom(List<String> lines) {
 			List<BankTransaction> bankTransactions = new ArrayList<>();
 			
 			for (String line : lines) {
-				BankTransaction bankTransaction = parseFromCSV(line);
+				BankTransaction bankTransaction = parseFrom(line);
 				bankTransactions.add(bankTransaction);
 			}
 			
