@@ -7,10 +7,14 @@ import dev.bank.model.BankTransaction;
 
 public class BankStatementProcessor {
 	
+	private List<BankTransaction> bankTransactions;
 	
+	public BankStatementProcessor(List<BankTransaction> bankTransactions) {
+		this.bankTransactions = bankTransactions;
+	}
 
 	// 총 입출금액 조회
-		public String calculateTotalAmount(List<BankTransaction> bankTransactions) {
+		public String calculateTotalAmount() {
 			double total = 0d;
 			
 			for (BankTransaction bankTransaction : bankTransactions) {
@@ -21,7 +25,7 @@ public class BankStatementProcessor {
 		}
 
 		// 특정 월의 입출금액 조회 로직으로 개선
-		public String calculateTotalInMonth(List<BankTransaction> bankTransactions, Month month) {
+		public String calculateTotalInMonth(Month month) {
 			double total = 0d;
 
 			for (BankTransaction bankTransaction : bankTransactions) {
