@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module step05lambda {
-}
