@@ -1,0 +1,2 @@
+loggerName: dev.syntax.step01basic.Step04UsingFormatter message: INFO 레벨 출력용 테스트 메시지
+loggerName: dev.syntax.step01basic.Step04UsingFormatter message: WARNING 레벨 출력용 테스트 메시지
