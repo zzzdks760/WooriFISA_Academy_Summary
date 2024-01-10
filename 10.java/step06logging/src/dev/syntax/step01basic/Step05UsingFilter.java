@@ -2,11 +2,11 @@ package dev.syntax.step01basic;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
+import java.util.logging.Filter;
 import java.util.logging.Formatter;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
 
 public class Step05UsingFilter {
 	
@@ -17,9 +17,9 @@ public class Step05UsingFilter {
 	public static void main(String[] args) {
 		// 기본 로그의 출력 레벨은 INFO(기본 설정값이 INFO)
 		
-		logger.log(Level.INFO, "INFO 레벨 출력용 테스트 메시지");
-		logger.log(Level.WARNING, "WARNING 레벨 출력용 테스트 메시지");
-		logger.log(Level.FINEST, "FINEST 레벨 출력용 테스트 메시지");
+//		logger.log(Level.INFO, "INFO 레벨 출력용 테스트 메시지");
+//		logger.log(Level.WARNING, "WARNING 레벨 출력용 테스트 메시지");
+//		logger.log(Level.FINEST, "FINEST 레벨 출력용 테스트 메시지");
 		
 		// 로그 기록을 파일 형태로 남길 수 있도록 하려면?
 		try {
@@ -28,8 +28,13 @@ public class Step05UsingFilter {
 			
 			Formatter logFormatter = new CustomFormatter();
 			fileHandler.setFormatter(logFormatter);
-						
+			
 			logger.addHandler(fileHandler);
+			
+			Filter filter = new CustomFilter();
+			fileHandler.setFilter(filter);
+			
+//			
 			
 		} catch (SecurityException | IOException e) {
 			// TODO Auto-generated catch block

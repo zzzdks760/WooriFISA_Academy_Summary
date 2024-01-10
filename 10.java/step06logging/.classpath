@@ -6,5 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Documents/GitHub/WooriFISA_Academy_Summary/99.lib/log4j-api-2.17.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Documents/GitHub/WooriFISA_Academy_Summary/99.lib/log4j-core-2.17.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
