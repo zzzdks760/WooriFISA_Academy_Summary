@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- log4j2에 대한 환경설정 파일 - 로그 레벨, 파일 입출력할 것인지, 로그 출력 포매팅 등 -->
 
-<Configuration name="Logging-config">
+<Configuration name="logging-config">
+
 
 	<Appenders>
-		<Console name="Console" target="SYSTEM_OUT">
-            
-        </Console>
+		<!-- Console에 출력될 수 있도록 마크업 형태로 작성할 수 있는 방법을 찾아서 적용 -->
+		<!-- jul에서 ConsoleHandler의 역할 -->
+		<Console name="STDOUT" target="SYSTEM_OUT">
+			
+			<!-- 출력 포맷 -->
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+			<!-- 
+				%d - date
+				%p - log level 
+				%m - log message
+				%n - new line
+				그 외 https://logging.apache.org/log4j/2.x/manual/layouts.html#patterns
+			-->
+		</Console>
+		<!-- File로도 출력될 수 있도록 -->
+		
 	</Appenders>
-
+	
 	<Loggers>
+		<!-- Root logger가 처리할 로그 이벤트의 최소 로그레벨 -->
 		<Root level="INFO">
-			<AppenderRef ref="Console" />
+			<AppenderRef ref="STDOUT"/>
 		</Root>
 	</Loggers>
-
+	
 </Configuration>

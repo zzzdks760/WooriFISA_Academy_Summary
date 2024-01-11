@@ -9,7 +9,6 @@ public class Mylog4j {
 
 	public static void main(String[] args) {
 		
-//		System.out.println(logger);
 		
 		logger.error("Error 메시지");
 		logger.info("INFO 메시지");
