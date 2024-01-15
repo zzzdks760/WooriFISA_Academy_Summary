@@ -72,7 +72,7 @@ select * from staff;
 -- 14. staff 테이블의 별칭을 s, payment 테이블의 별칭을 p로 짓고,
 -- 두 테이블을 연결(JOIN)하여 staff_id가 일치하는 조건의 staff_id, first_name, last_name 및 amount의 총 금액(sum) 컬럼을 조회하되,
 -- payment_date가 2005-08-01 00:00:00 이후이고, 2005-08-02 00:00:00 ‘미만’인 데이터만 필터링하여 staff_id를 기준으로 묶어서(grouping) 조회**
-select s.staff_id, s.first_name, s.last_name, count(p.amount) as 'sum'
+select s.staff_id, s.first_name, s.last_name, sum(p.amount) as amount
 from staff s
 Inner JOIN payment p
 ON s.staff_id = p.staff_id
