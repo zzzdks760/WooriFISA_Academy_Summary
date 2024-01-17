@@ -1,14 +1,16 @@
 package dev.syntax;
 
+import java.sql.SQLException;
+
+import dev.cls.Console;
 import dev.syntax.controller.TodoController;
-import dev.syntax.model.Todo;
-import dev.syntax.util.DBUtil;
 
 public class APP {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		TodoController todoController = new TodoController();
 		todoController.findAll();
+		Console.print("Hello");
 	}
 
 }

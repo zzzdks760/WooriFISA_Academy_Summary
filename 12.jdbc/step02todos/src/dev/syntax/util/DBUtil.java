@@ -30,7 +30,7 @@ public class DBUtil {
 			
 			prop.load(fs);
 			
-			prop.list(System.out);
+//			prop.list(System.out);
 			
 			final String DB_URL = prop.getProperty("url");
 			final String DATABASE_NAME = prop.getProperty("database");

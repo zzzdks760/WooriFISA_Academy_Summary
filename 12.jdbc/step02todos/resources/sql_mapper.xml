@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<properties>
+	<comment>sql_mapper.xml</comment>
+	<entry key="getTodos">
+		SELECT
+			*
+		FROM
+			todo
+	</entry>
+</properties>

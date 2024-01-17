@@ -2,11 +2,14 @@ package dev.syntax.model;
 
 import java.time.LocalDate;
 
-import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본생성자
+@NoArgsConstructor // 기본생성자
+@AllArgsConstructor // 모든 필드를 받는 생성자
+@ToString
 public class Todo {
 	
 	private int id;
@@ -14,12 +17,6 @@ public class Todo {
 	private String description;
 	private LocalDate dueDate;
 	private boolean isCompleted;
-	
-	public Todo(int id, String title, String description, LocalDate dueDate, boolean isCompleted) {
-		this.title = title;
-		this.description = description;
-		this.dueDate = dueDate;
-		this.isCompleted = isCompleted;
-	}
+
 	
 }
