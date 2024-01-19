@@ -17,7 +17,8 @@
   	<!-- servlet-name : 맵핑할 서블릿의 별칭 -->
   	<servlet-name>MyFirstServlet</servlet-name>
   	<!-- Servlet-class: 실제 서블릿 클래스 풀네임(패키지포함) -->
-  	<servlet-class>dev.syntax.FirstServlet</servlet-class>
+  	<servlet-class>dev.syntax.step01helloservlet.FirstServlet</servlet-class>
+
   </servlet>
   <servlet-mapping>
   	<servlet-name>MyFirstServlet</servlet-name>

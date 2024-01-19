@@ -28,4 +28,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>C:/woori_workspace/00.sw/apache-tomcat-9.0.85-src/java</location>
+		</link>
+	</linkedResources>
 </projectDescription>
