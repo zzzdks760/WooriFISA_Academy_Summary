@@ -1,21 +1,19 @@
 package dev.pattern.singleton.parctice;
 
 public class User {
-	Ticket ticket;
-	
-	public User(Ticket ticket) {
-		this.ticket = ticket;
-	}
+	private Ticket ticket;
 
 	public void useTicketMachine() {
-		TicketMachine machine = TicketMachine.getTicket();
+		TicketMachine machine = TicketMachine.operateTicketMachine();
+		ticket = machine.getTicket();
 	}
 	
-	Ticket getMyTicket() {
-		
+	public Ticket getMyTicket() {
+		return ticket;
 	}
 	
-	String toString() {
-		
+	
+	public String toString() {
+		return "User 인스턴스의 주소값: " + this.toString();
 	}
 }

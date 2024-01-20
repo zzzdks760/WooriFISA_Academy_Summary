@@ -2,8 +2,6 @@ package dev.pattern.singleton.parctice;
 
 public class InvalidTicket extends Ticket{
 
-	
-	
 	public InvalidTicket() {
 		this.serialNumber = 0;
 	}
@@ -12,5 +10,12 @@ public class InvalidTicket extends Ticket{
 	public long getTicketNum() {
 		return serialNumber;
 	}
+
+	@Override
+	public boolean isValid() {
+		return false;
+	}
+	
+	
 
 }

@@ -10,5 +10,9 @@ public class ValidTicket extends Ticket{
 	public long getTicketNum() {
 		return serialNumber;
 	}
-	
+
+	@Override
+	public boolean isValid() {
+		return true;
+	}
 }

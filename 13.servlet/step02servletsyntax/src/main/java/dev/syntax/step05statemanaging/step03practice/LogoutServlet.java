@@ -18,7 +18,7 @@ public class LogoutServlet extends HttpServlet{
 		resp.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 		
-		HttpSession session = req.getSession(false);
+		HttpSession session = req.getSession(false); // 세션이 존재할때만 로그아웃을 수행하기 위해 false
 		
 		if (session != null && session.getAttribute("userId") != null) {
 			session.invalidate();
