@@ -36,8 +36,11 @@ public class MouseInsertServlet extends HttpServlet {
 		mouseDAO.add(newMouse); // DB INSERT 처리 수행
 		
 		String path = "/mice";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+		response.sendRedirect(path);
+//		redirect로 변경하기
+		
+//		dispatcher.forward(request, response);
 		
 	}
 }

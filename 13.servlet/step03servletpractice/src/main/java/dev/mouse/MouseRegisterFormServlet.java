@@ -20,7 +20,7 @@ public class MouseRegisterFormServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		StringBuilder responseHTML = new StringBuilder();
-
+		
 		responseHTML.append("<html>");
 		responseHTML.append("	<head>");
 		responseHTML.append("		<meta charset=\"UTF-8\"/>");
