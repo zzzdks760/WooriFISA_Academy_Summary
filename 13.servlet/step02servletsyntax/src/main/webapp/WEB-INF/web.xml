@@ -13,19 +13,4 @@
   <!-- XML 기반 서블릿 맵핑 -->
   <!-- 1. Servlet 맵핑 -->
   
-  <servlet>
-  	<!-- servlet-name : 맵핑할 서블릿의 별칭 -->
-  	<servlet-name>MyFirstServlet</servlet-name>
-  	<!-- Servlet-class: 실제 서블릿 클래스 풀네임(패키지포함) -->
-  	<servlet-class>dev.syntax.step01helloservlet.FirstServlet</servlet-class>
-
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>MyFirstServlet</servlet-name>
-  	<!-- url-pattern: 서블릿이 동작할 요청 경로 URI -->
-  	<url-pattern>/servlets/firstservlet</url-pattern>
-  </servlet-mapping>
-  
-
-  
 </web-app>
