@@ -39,7 +39,7 @@ public class UserRegisterController extends HttpServlet{
 		} else {
 			out.println("로그인 실패");
 		}
-		
+		out.close();
 	}
 	
 }

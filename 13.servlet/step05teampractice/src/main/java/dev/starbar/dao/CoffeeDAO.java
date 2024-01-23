@@ -65,7 +65,7 @@ public class CoffeeDAO {
 	 * 커피 메뉴 수정
 	 */
 	public boolean update(int id, String name, String size, int price) {
-		final String sql = "UPDATE USER SET name=?, size =?, price =? WHERE id =?";
+		final String sql = "UPDATE COFFEE SET name=?, size =?, price =? WHERE id =?";
 		
 		try (Connection connection = DBUtil.getConnection();
 			PreparedStatement statement = connection.prepareStatement(sql)){
@@ -73,6 +73,7 @@ public class CoffeeDAO {
 			statement.setString(1, name);
 			statement.setString(2, size);
 			statement.setInt(3, price);
+			statement.setInt(4, id);
 			
 			int update = statement.executeUpdate();
 			if (update > 0) {
@@ -89,7 +90,7 @@ public class CoffeeDAO {
 	 * 커피 메뉴 제거
 	 */
 	public boolean deleteById(int id) {
-		final String sql = "DELETE * FROM USER WHERE id =?";
+		final String sql = "DELETE FROM COFFEE WHERE id =?";
 		
 		try (Connection connection = DBUtil.getConnection();
 			PreparedStatement statement = connection.prepareStatement(sql)) {

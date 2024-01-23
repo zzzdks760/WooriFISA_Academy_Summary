@@ -32,6 +32,7 @@ public class CoffeeAddController extends HttpServlet{
 		} else {
 			out.print("올바른 값을 입력하세요");
 		}
+		out.close();
 	}
 	
 }
