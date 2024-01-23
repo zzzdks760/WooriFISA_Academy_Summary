@@ -15,7 +15,7 @@
   <!-- Define appenders -->
   <Appenders>
     <!-- Console Appender -->
-    <Console name="Console" target="SYSTEMx_OUT">
+    <Console name="Console" target="SYSTEM_OUT">
       <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
     </Console>
   </Appenders>

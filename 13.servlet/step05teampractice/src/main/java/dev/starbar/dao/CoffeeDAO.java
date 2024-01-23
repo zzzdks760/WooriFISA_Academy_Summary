@@ -8,6 +8,7 @@ import java.util.List;
 
 import dev.starbar.model.Coffee;
 import dev.starbar.util.DBUtil;
+import dev.starbar.util.HikariCPDataSource;
 
 public class CoffeeDAO {
 	
@@ -18,7 +19,7 @@ public class CoffeeDAO {
 		final String selectQuery = "SELECT * FROM coffee";
 		List<Coffee> coffees = new ArrayList<>();
 
-		try (Connection con = DBUtil.getConnection();
+		try (Connection con = HikariCPDataSource.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(selectQuery);
 				ResultSet rs = pstmt.executeQuery();) {
 
@@ -44,7 +45,7 @@ public class CoffeeDAO {
 	public boolean save(String name, String size, int price) {
 		final String sql = "INSERT INTO coffee(name, size, price) VALUES(?, ?, ?)";
 		
-		try (Connection connection = DBUtil.getConnection();
+		try (Connection connection = HikariCPDataSource.getConnection();
 			PreparedStatement statement = connection.prepareStatement(sql)){
 			
 			statement.setString(1, name);
@@ -67,7 +68,7 @@ public class CoffeeDAO {
 	public boolean update(int id, String name, String size, int price) {
 		final String sql = "UPDATE COFFEE SET name=?, size =?, price =? WHERE id =?";
 		
-		try (Connection connection = DBUtil.getConnection();
+		try (Connection connection = HikariCPDataSource.getConnection();
 			PreparedStatement statement = connection.prepareStatement(sql)){
 			
 			statement.setString(1, name);
@@ -92,7 +93,7 @@ public class CoffeeDAO {
 	public boolean deleteById(int id) {
 		final String sql = "DELETE FROM COFFEE WHERE id =?";
 		
-		try (Connection connection = DBUtil.getConnection();
+		try (Connection connection = HikariCPDataSource.getConnection();
 			PreparedStatement statement = connection.prepareStatement(sql)) {
 			
 			statement.setInt(1, id);

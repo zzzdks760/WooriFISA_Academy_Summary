@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import dev.starbar.util.DBUtil;
+import dev.starbar.util.HikariCPDataSource;
 
 public class UserDAO {
 	
@@ -15,7 +16,9 @@ public class UserDAO {
 		
 		final String sql = "INSERT INTO user(user_id, password) VALUES(?, ?)";
 		
-		try (Connection connection = DBUtil.getConnection(); 
+		Connection connection = HikariCPDataSource.getConnection(); 
+		
+		try (
 			PreparedStatement statement = connection.prepareStatement(sql)){
 			
 			statement.setString(1, id);
@@ -39,7 +42,9 @@ public class UserDAO {
 	public boolean findUser(String id, String password) {
 		final String sql = "SELECT * FROM USER where user_id =? AND password =?";
 		
-		try (Connection connection = DBUtil.getConnection();
+		Connection connection = HikariCPDataSource.getConnection();
+		
+		try (
 			PreparedStatement statement = connection.prepareStatement(sql)){
 			
 			statement.setString(1, id);
