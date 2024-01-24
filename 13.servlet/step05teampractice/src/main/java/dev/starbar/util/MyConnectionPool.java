@@ -1,10 +1,13 @@
 package dev.starbar.util;
 
+import java.lang.System.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.mysql.cj.log.Log;
 
 /*
  * 커넥션 풀 개념을 간이로 구현한 클래스  
@@ -51,6 +54,7 @@ public class MyConnectionPool {
 
 	// 커넥션 풀 생성
 	public static MyConnectionPool create(String url, String user, String password) throws SQLException {
+		
 
 		List<Connection> pool = new ArrayList<>(INITIAL_POOL_SIZE);
 		

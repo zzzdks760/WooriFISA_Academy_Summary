@@ -4,7 +4,7 @@
   <!-- Define loggers -->
   <Loggers>
     <!-- HikariCP Logger -->
-    <Logger name="com.zaxxer.hikari" level="debug"/>
+    <!-- Logger name="com.zaxxer.hikari" level="debug"/> -->
     
     <!-- Root Logger -->
     <Root level="info">

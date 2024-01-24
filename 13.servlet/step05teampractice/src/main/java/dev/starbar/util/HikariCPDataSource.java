@@ -3,6 +3,9 @@ package dev.starbar.util;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -11,6 +14,7 @@ import com.zaxxer.hikari.HikariDataSource;
  */
 public class HikariCPDataSource {
 
+	private static final Logger LOGGER = LogManager.getLogger(HikariCPDataSource.class);
 	private static HikariConfig config = new HikariConfig();
 	private static HikariDataSource ds;
 	static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
@@ -34,8 +38,9 @@ public class HikariCPDataSource {
 	}
 
 	public static Connection getConnection() {
-	
+		
 		try {
+			LOGGER.info("test");
 			return ds.getConnection();
 		} catch (SQLException e) {
 			e.printStackTrace();
