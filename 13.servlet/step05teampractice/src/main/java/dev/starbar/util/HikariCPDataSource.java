@@ -7,7 +7,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 /*
- * HikariCP 라이브러리를 편하게 사용하기 위한 래퍼(Wrapper) 클래스a
+ * HikariCP 라이브러리를 편하게 사용하기 위한 래퍼(Wrapper) 클래스
  */
 public class HikariCPDataSource {
 
