@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration>
+  <!-- Define loggers -->
+  <Loggers>
+    <!-- HikariCP Logger -->
+    <!-- Logger name="com.zaxxer.hikari" level="debug"/> -->
+    
+    <!-- Root Logger -->
+    <Root level="info">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+
+  <!-- Define appenders -->
+  <Appenders>
+    <!-- Console Appender -->
+    <Console name="Console" target="SYSTEMx_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+</Configuration>

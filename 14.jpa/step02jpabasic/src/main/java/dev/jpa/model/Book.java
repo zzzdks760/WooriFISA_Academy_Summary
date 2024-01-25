@@ -62,10 +62,8 @@ public class Book {
 		this.pubDate = pubDate;
 	}
 
-	public Book(String name, Date pubDate, String author) {
-		super();
+	public Book(String name, String author) {
 		this.name = name;
-		this.pubDate = pubDate;
 		this.author = author;
 	}
 

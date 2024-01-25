@@ -24,7 +24,7 @@ class Step07LifeCycleTest {
 	void testPersist를_수행할_경우_엔티티가_영속화되고_commit이_수행될_경우_DB에_저장된다() {
 		transaction.begin();
 		
-		Book book = new Book("JPA", new Date(), "김남혁");
+		Book book = new Book("JPA", "김남혁");
 		em.persist(book);
 		
 		Book findBook = em.find(Book.class, book.getId());
