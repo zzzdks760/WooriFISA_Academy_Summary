@@ -30,7 +30,7 @@ public class UserRegisterController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("step02jpabasic");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("step05jpabasic");
 		EntityManager em = factory.createEntityManager();
 		EntityTransaction transaction = em.getTransaction();
 		

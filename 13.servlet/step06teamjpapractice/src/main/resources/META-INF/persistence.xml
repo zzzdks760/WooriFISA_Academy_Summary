@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- JPA Hibernate 설정 파일
+	DB 및 JPA 관련 설정 코드 작성 부분 
+-->
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    
+    <!-- name - 프로젝트 이름과 동일하게 작성 -->
+    <persistence-unit name="step06teamjpapractice">
+    
+    	<!-- DB 및 JPA 부가 옵션 설정 코드 작성 부분 -->
+    	<properties>
+    		
+    		<!-- MySQL DBMS 연결을 위한 설정 -->
+    		<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+    		<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC"/>
+    		<property name="javax.persistence.jdbc.user" value="root"/>
+    		<property name="javax.persistence.jdbc.password" value="1234"/>
+    		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+    		
+    		<!-- 선택 속성 -->
+    		<property name="hibernate.show_sql" value="true"/>
+    		<property name="hibernate.format_sql" value="true"/>
+    		<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create: 테이블 DROP + CREATE -->
+   																	<!-- validate: DDL 쿼리가 맵핑이 잘 되었는지 검증 -->
+    	</properties>
+    </persistence-unit>
+    
+</persistence>

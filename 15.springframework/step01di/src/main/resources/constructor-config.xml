@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/xsd-configuration.html -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <bean id="tape" class="dev.spring.step01setter.Tape">
+        	<constructor-arg value="아일랜드"></constructor-arg>
+        	<constructor-arg value="true"></constructor-arg>
+        </bean>
+        
+		<bean id="tapeReader" class="dev.spring.step01setter.TapeReader">
+			<constructor-arg ref="tape"></constructor-arg>
+		</bean>
+</beans>
