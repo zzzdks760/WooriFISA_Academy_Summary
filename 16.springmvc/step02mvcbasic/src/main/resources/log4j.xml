@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- Application Loggers -->
+	<logger name="dev.mvc.step02">
+		<level value="info" />
+	</logger>
+
+	<!-- 3rdparty Loggers -->
+	<!-- 개발자가 직접 작성한 코드 외에 외부 라이브러리(스프링)에서 제공하는 부분에 대한 로깅  -->
+<!--  	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.beans">
+		<level value="debug" />
+	</logger>
+
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="trace" />
+	</logger> -->
+
+	<!-- Root Logger --> 
+	
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" />
+	</root>
+</log4j:configuration>

@@ -6,7 +6,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import dev.bank.bankstatement.data.BankStatementParser;
-import dev.bank.bankstatement.data.BankStatementTSVParser;
 
 public class MainApplication {
 

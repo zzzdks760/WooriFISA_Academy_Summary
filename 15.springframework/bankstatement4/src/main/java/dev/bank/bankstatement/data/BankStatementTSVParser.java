@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import dev.bank.bankstatement.domain.BankTransaction;
 
-@Component
+@Component(value = "bankStatementParser")
 public class BankStatementTSVParser implements BankStatementParser{
 	private static final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 

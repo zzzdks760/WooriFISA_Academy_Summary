@@ -13,6 +13,7 @@ import dev.bank.bankstatement.data.BankStatementParser;
 import dev.bank.bankstatement.domain.BankTransaction;
 import dev.bank.bankstatement.service.BankStatementProcessor;
 
+@Component
 public class BankStatementAnalyzer {
 
 	private static final String RESOURCES = "src/main/resources/";
