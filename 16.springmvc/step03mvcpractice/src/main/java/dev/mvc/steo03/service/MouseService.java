@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import dev.mvc.steo03.model.Mouse;
 
+@Service
 public class MouseService {
 	
 	private static List<Mouse> mice;
