@@ -21,4 +21,12 @@ public class BaseEntity {
     public BaseEntity(Long id) {
         this.id = id;
     }
+
+    public boolean isNew() {
+        return this.id == null;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

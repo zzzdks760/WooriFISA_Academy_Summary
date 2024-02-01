@@ -24,4 +24,14 @@ public class OwnerServiceImpl implements OwnerService {
     public Optional<Owner> findById(Long id) {
         return ownerRepository.findById(id);
     }
+
+    @Override
+    public Owner save(Owner owner) {
+        return ownerRepository.save(owner);
+    }
+
+    @Override
+    public Owner update(Owner owner) {
+        return ownerRepository.save(owner);
+    }
 }

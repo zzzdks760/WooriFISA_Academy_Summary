@@ -9,4 +9,8 @@ public interface OwnerService {
     List<Owner> findAllByLastNameLike(String lastName);
 
     Optional<Owner> findById(Long id);
+
+    Owner save(Owner owner);
+
+    Owner update(Owner owner);
 }
