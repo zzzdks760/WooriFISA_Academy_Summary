@@ -25,12 +25,17 @@ public class Pet extends BaseEntity{
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private Type petType;
+
     @Builder
-    public Pet(Long id, Owner owner, String name, LocalDate birthDate) {
+    public Pet(Long id, Owner owner, String name, LocalDate birthDate, Type petType) {
         super(id);
         this.owner = owner;
         this.name = name;
         this.birthDate = birthDate;
+        this.petType = petType;
     }
 
 }

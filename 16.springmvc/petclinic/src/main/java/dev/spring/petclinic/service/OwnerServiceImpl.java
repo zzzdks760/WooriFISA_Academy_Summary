@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -17,5 +18,10 @@ public class OwnerServiceImpl implements OwnerService {
     public List<Owner> findAllByLastNameLike(String lastName) {
 
         return ownerRepository.findAllByLastNameLike(lastName);
+    }
+
+    @Override
+    public Optional<Owner> findById(Long id) {
+        return ownerRepository.findById(id);
     }
 }

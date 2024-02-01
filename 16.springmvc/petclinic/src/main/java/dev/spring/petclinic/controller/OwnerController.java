@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller // 스프링 빈으로 등록
@@ -39,4 +40,12 @@ public class OwnerController {
         return "owners/ownersList";
     }
 
+    @GetMapping("/{id}")
+    public String ownerDetailPage(Owner owner, Model model) {
+        Optional<Owner> findOwner = ownerService.findById(owner.getId());
+        System.out.println("findOwner = " + findOwner.get().getLastName());
+        model.addAttribute("owner", findOwner.get());
+
+        return "owners/ownerDetails";
+    }
 }

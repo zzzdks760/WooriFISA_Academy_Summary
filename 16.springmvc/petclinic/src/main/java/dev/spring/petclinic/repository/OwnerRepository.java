@@ -4,6 +4,7 @@ import dev.spring.petclinic.model.Owner;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 /*
     CrudRepository - CRUD 위주의 기능을 제공하는 인터페이스
@@ -13,4 +14,5 @@ import java.util.List;
  */
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
     List<Owner> findAllByLastNameLike(String lastName);
+    Optional<Owner> findById(Long id);
 }
