@@ -28,18 +28,18 @@ public class Owner extends BaseEntity {
 
     private String telephone;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    private List<Pet> pets = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+//    private List<Pet> pets = new ArrayList<>();
 
     @Builder
-    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, List<Pet> pets) {
+    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.telephone = telephone;
-        this.pets = pets;
+//        this.pets = pets;
     }
 
     public void setLastName(String lastName) {

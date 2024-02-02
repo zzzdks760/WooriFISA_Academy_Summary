@@ -5,6 +5,7 @@ import dev.spring.petclinic.repository.OwnerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,5 +34,12 @@ public class OwnerServiceImpl implements OwnerService {
     @Override
     public Owner update(Owner owner) {
         return ownerRepository.save(owner);
+    }
+
+    @Override
+    public List<Owner> findAll() {
+        List<Owner> owners = new ArrayList<>();
+        ownerRepository.findAll().forEach(owners::add);
+        return owners;
     }
 }

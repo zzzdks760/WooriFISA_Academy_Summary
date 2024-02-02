@@ -4,11 +4,9 @@ import dev.spring.petclinic.model.Owner;
 import dev.spring.petclinic.service.OwnerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -51,7 +49,7 @@ public class OwnerController {
         } else if (owners.size() == 1) {
             log.info("1명");
             model.addAttribute("owner", owners.get(0));
-            return "owners/ownerDetails";
+            return "redirect:/owners/" + owners.get(0).getId();
         } else {
             log.info("owner가 존재하지 않습니다.");
             return "error";
@@ -84,6 +82,7 @@ public class OwnerController {
 
     @GetMapping("/{id}/edit")
     public String updateOwnerForm(Owner owner, Model model) {
+        System.out.println("==================오너 아이디: " + owner.getId());
         Optional<Owner> findOwner = ownerService.findById(owner.getId());
         model.addAttribute("owner", findOwner.get());
 
@@ -93,10 +92,10 @@ public class OwnerController {
     @PostMapping("/{id}/edit")
     public String updateOwner(Owner owner, Model model) {
         Owner updateOwner = ownerService.update(owner);
+        System.out.println("updateOwner의 아이디값 = " + updateOwner.getId());
         model.addAttribute("owner", updateOwner);
 
         return "redirect:/owners?lastName=";
     }
-
 
 }
