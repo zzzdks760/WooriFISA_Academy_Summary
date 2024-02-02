@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -81,17 +82,17 @@ public class OwnerController {
     }
 
     @GetMapping("/{id}/edit")
-    public String updateOwnerForm(Owner owner, Model model) {
-        System.out.println("==================오너 아이디: " + owner.getId());
-        Optional<Owner> findOwner = ownerService.findById(owner.getId());
+    public String updateOwnerForm(@PathVariable Long id, Model model) {
+        System.out.println("==================오너 아이디: " + id);
+        Optional<Owner> findOwner = ownerService.findById(id);
         model.addAttribute("owner", findOwner.get());
 
         return "owners/createOrUpdateOwnerForm";
     }
 
     @PostMapping("/{id}/edit")
-    public String updateOwner(Owner owner, Model model) {
-        Owner updateOwner = ownerService.update(owner);
+    public String updateOwner(@PathVariable Long id, Owner owner, Model model) {
+        Owner updateOwner = ownerService.update(id, owner);
         System.out.println("updateOwner의 아이디값 = " + updateOwner.getId());
         model.addAttribute("owner", updateOwner);
 

@@ -1,9 +1,6 @@
 package dev.spring.petclinic.model;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -13,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
+@Setter
+@ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "owners")
@@ -28,21 +27,29 @@ public class Owner extends BaseEntity {
 
     private String telephone;
 
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-//    private List<Pet> pets = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Pet> pets = new ArrayList<>();
 
     @Builder
-    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone) {
+    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, List<Pet> pets) {
         super(id);
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.telephone = telephone;
-//        this.pets = pets;
+        this.pets = pets;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void updateOwner(String firstName, String lastName, String address, String city, String telephone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
     }
 }

@@ -1,7 +1,9 @@
 package dev.spring.petclinic.repository;
 
 import dev.spring.petclinic.model.Owner;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,5 +16,8 @@ import java.util.Optional;
  */
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
     List<Owner> findAllByLastNameLike(String lastName);
-    Optional<Owner> findById(Long id);
+
+    @Query("select o from Owner o where o.firstName = :name or o.lastName = :name")
+    List<Owner> findLastNameOrFirstName(String name);
+
 }
