@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f3073678-1b4b-41fa-97ff-8d726ee92c82" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/src/main/java/dev/pattern/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/src/main/java/dev/pattern/step01beforeproxy/Hello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/src/main/java/dev/pattern/step01beforeproxy/HelloTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/src/main/java/dev/pattern/step02proxywithpurejava/HelloUppercaseProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/src/main/java/dev/pattern/step03dynamicproxy/UppercaseHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../step02proxypattern/src/test/java/dev/pattern/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4.PAPAGO/src-frontend-papago-v2" beforeDir="false" afterPath="$PROJECT_DIR$/../../4.PAPAGO/src-frontend-papago-v2" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2c4QwwB4TwdJaFkFqR0GqkEUwvZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f3073678-1b4b-41fa-97ff-8d726ee92c82" name="Changes" comment="" />
+      <created>1707368617124</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707368617124</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
