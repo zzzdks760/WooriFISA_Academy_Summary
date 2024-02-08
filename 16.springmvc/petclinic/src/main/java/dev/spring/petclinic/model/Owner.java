@@ -1,5 +1,6 @@
 package dev.spring.petclinic.model;
 
+import dev.spring.petclinic.dto.OwnerRequest;
 import lombok.*;
 
 import javax.persistence.CascadeType;
@@ -52,4 +53,5 @@ public class Owner extends BaseEntity {
         this.city = city;
         this.telephone = telephone;
     }
+
 }

@@ -56,7 +56,8 @@ public class OwnerRestController {
      * Owner 등록
      */
     @PostMapping
-    public Owner addOwner(@RequestBody Owner owner) {
+    public Owner addOwner(@RequestBody OwnerRequest ownerRequest) {
+        Owner owner = ownerRequest.toEntity();
         return ownerService.save(owner);
     }
 
@@ -64,7 +65,8 @@ public class OwnerRestController {
      * Owner 수정
      */
     @PatchMapping("/{id}")
-    public Owner updateOwner(@PathVariable Long id, @RequestBody Owner owner) {
+    public Owner updateOwner(@PathVariable Long id, @RequestBody OwnerRequest ownerRequest) {
+        Owner owner = ownerRequest.toEntity();
         return ownerService.update(id, owner);
     }
 

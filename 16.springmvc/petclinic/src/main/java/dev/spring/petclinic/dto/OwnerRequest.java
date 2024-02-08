@@ -5,9 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Getter
 @ToString
 @AllArgsConstructor
@@ -18,6 +15,15 @@ public class OwnerRequest {
     private String address;
     private String city;
     private String telephone;
-    private List<PetRequest> pets;
 
+    public Owner toEntity() {
+        return Owner.builder()
+                .id(id)
+                .firstName(firstName)
+                .lastName(lastName)
+                .address(address)
+                .city(city)
+                .telephone(telephone)
+                .build();
+    }
 }
