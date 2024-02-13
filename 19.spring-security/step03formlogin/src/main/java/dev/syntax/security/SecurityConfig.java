@@ -17,7 +17,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 //        HTTP Basic 인증 방식을 적용하기 위해 해당 필터 추가
-        http.httpBasic(Customizer.withDefaults());
+        http.formLogin(Customizer.withDefaults());
 
         http.authorizeRequests() // 요청에 대해 권한을 확인할 것
                 .anyRequest() // 서버에 존재하는 모든 경로의 요청에 대해
