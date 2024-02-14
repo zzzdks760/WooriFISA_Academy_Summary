@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+</head>
+<body>
+<h2 th:text="'안녕하세요, ' + ${username} + '!'" />
+
+<form th:action="@{/custom/logout}" method="post">
+  <input type="submit" value="Logout" />
+</form>
+
+<table>
+  <thead>
+  <tr>
+    <th> 상품명 </th>
+    <th> 가격 </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${products.empty}">
+    <td colspan="2"> 상품이 존재하지 않습니다. </td>
+  </tr>
+  <tr th:each="product : ${products}">
+    <td><span th:text="${product.name}"> 상품명 </span></td>
+    <td><span th:text="${product.price}"> 가격 </span></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
