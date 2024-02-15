@@ -10,6 +10,8 @@
 <body>
 <form method="post"
       action="/transfer">
+  <input type="hidden" th:name="${_csrf.parameterName}"
+         th:value="${_csrf.token}" />
   <input type="text"
          name="amount" placeholder="송금액"/>
   <input type="text"
