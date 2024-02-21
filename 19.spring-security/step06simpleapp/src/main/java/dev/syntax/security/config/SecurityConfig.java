@@ -18,7 +18,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // form-login 적용
         http.formLogin()
-                // .defaultSuccessUrl("/products", true) // 인증이 성공할 경우 리다이렉트할 url 지정 가능
+                 .defaultSuccessUrl("/products", true) // 인증이 성공할 경우 리다이렉트할 url 지정 가능
                 .loginPage("/custom/login")
                 .permitAll(); // 해당 경로는 별도의 인증 없이 모두 접근 허용
 

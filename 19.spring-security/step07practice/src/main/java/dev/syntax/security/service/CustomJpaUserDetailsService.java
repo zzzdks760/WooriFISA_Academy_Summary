@@ -11,14 +11,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CustomJpaUserDetailsService implements UserDetailsService {
 
-    private final MemberRepository memberRepository;
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         memberRepository.findMemberByName(username)
                 .orElseThrow(() -> new UsernameNotFoundException("해당하는 사용자가 없음"));
 
-        return new Custom
+        return new
     }
 }
